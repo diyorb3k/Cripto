@@ -2,15 +2,18 @@ import React, { useEffect, useState } from "react";
 import "../Scss/Hero.scss";
 import Pagination from "@mui/material/Pagination";
 import { FaEye } from "react-icons/fa";
+import { useNavigate } from "react-router-dom"; // Link import qilish
 import Header from "./Header"; // Header komponentini import qilish
 import MySwiperComponent from "./MySwiperComponent";
+import Loading from "./Loading/Loading";
 
 const Hero = () => {
   const [cryptocurrencies, setCryptocurrencies] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [currency, setCurrency] = useState("USD"); // Tanlangan valyuta
+  const [currency, setCurrency] = useState("USD"); 
   const [searchTerm, setSearchTerm] = useState(""); // Qidiruv uchun qiymat
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const fetchCryptocurrencies = async () => {
@@ -21,9 +24,8 @@ const Hero = () => {
         const data = await response.json();
         setCryptocurrencies(data);
 
-      
-        const totalResults = 1000; 
-        setTotalPages(Math.ceil(totalResults / 10)); 
+        const totalResults = 1000;
+        setTotalPages(Math.ceil(totalResults / 10));
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -36,9 +38,10 @@ const Hero = () => {
     setPage(value);
   };
 
-  const filteredCryptos = cryptocurrencies.filter(crypto => 
-    crypto.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-    crypto.symbol.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredCryptos = cryptocurrencies.filter(
+    (crypto) =>
+      crypto.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      crypto.symbol.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
@@ -48,18 +51,17 @@ const Hero = () => {
         <div className="container">
           <h1>CRYPTOFOLIO WATCH LIST</h1>
           <p>Get all the Info regarding your favorite Crypto Currency</p>
-          <MySwiperComponent/>
-         
+          <MySwiperComponent />
         </div>
       </div>
       <div className="data">
         <div className="container">
           <h2>Cryptocurrency Prices by Market Cap</h2>
-          <input 
-            type="text" 
-            placeholder="Search for a cryptocurrency..." 
-            value={searchTerm} 
-            onChange={(e) => setSearchTerm(e.target.value)} 
+          <input
+            type="text"
+            placeholder="Search for a cryptocurrency..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
             className="search-input"
           />
           <div className="crypto-table">
@@ -73,13 +75,19 @@ const Hero = () => {
                 </tr>
               </thead>
               <tbody>
+                
                 {filteredCryptos.length === 0 ? (
                   <tr>
                     <td colSpan="4">Api ishlamayabdi</td>
+                    
                   </tr>
                 ) : (
                   filteredCryptos.map((crypto) => (
-                    <tr key={crypto.id}>
+                    <tr
+                      key={crypto.id}
+                      className="crypto-row"
+                      onClick={() => navigate(`/detail/${crypto.id}`)}
+                    >
                       <td className="img_name">
                         <img
                           src={crypto.image}
@@ -91,11 +99,16 @@ const Hero = () => {
                           <p>{crypto.name}</p>
                         </div>
                       </td>
-                      <td className="curentt">{crypto.current_price} {currency}</td>
-                      <td>
-                        <FaEye className="faeye" /> {crypto.price_change_percentage_24h}%
+                      <td className="curentt">
+                        {crypto.current_price} {currency}
                       </td>
-                      <td>{crypto.market_cap} {currency}</td>
+                      <td style={{ color: crypto.price_change_percentage_24h > 0 ? 'green' : 'red' }}>
+                        <FaEye className="faeye" />{" "}
+                        {crypto.price_change_percentage_24h}%
+                      </td>
+                      <td>
+                        {crypto.market_cap} {currency}
+                      </td>
                     </tr>
                   ))
                 )}

@@ -1,0 +1,40 @@
+/* Loading.scss */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Butun balandlikni egallash */
+  // background-color: #f0f0f0; /* Orqa fon rangi */
+}
+
+.loading {
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 20px;
+  height: 20px;
+  background-color: #007bff; /* Dot rangini sozlash */
+  border-radius: 50%; /* To'liq doira shaklini berish */
+  animation: pulse 1.5s infinite ease-in-out; /* Pulsatsiya animatsiyasi */
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.3s; /* O'zgartirilgan animatsiya kechikishi */
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.6s; /* O'zgartirilgan animatsiya kechikishi */
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1); /* Boshlanish va tugash holati */
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5); /* O'rtadagi kattalashish */
+    opacity: 0.5;
+  }
+}
