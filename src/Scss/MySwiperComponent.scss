@@ -1,0 +1,90 @@
+#app {
+  height: 100%;
+}
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.swaper1 {
+  height: 250px;
+  background-color: none !important;
+  color: #fff;
+}
+.uppercase-text {
+  text-transform: uppercase;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18.75px;
+  text-align: left;
+  color: #fff !important;
+}
+.img_data {
+  width: 80px !important;
+  height: 80px !important;
+}
+.price_symbol {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  span {
+    font-family: Roboto;
+    font-size: 15.75px;
+    font-weight: 500;
+    line-height: 18.46px;
+    text-align: left;
+    color: #0ecb81;
+  }
+}
+.datad {
+  gap: 9px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.curent {
+  display: flex;
+  align-items: center;
+  gap: 10px !important;
+  font-family: Roboto;
+  font-size: 21.83px;
+  font-weight: 500;
+  line-height: 25.58px;
+  text-align: left;
+  color: #fff !important;
+  p {
+    font-family: Roboto;
+    font-size: 21.83px;
+    font-weight: 500;
+    line-height: 25.58px;
+    text-align: left;
+    color: #fff !important;
+  }
+}

@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20;
+  box-sizing: border-box;
+  h1 {
+    font-family: Montserrat;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 72px;
+    letter-spacing: -0.5px;
+    text-align: center;
+    color: #87ceeb;
+    padding-top: 90px;
+  }
+  p {
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21.98px;
+    letter-spacing: 0.10000000149011612px;
+    text-align: center;
+    color: #a9a9a9;
+  }
+}
+.Hero {
+  background-image: url("/homimg/97f154adfd88d0e48d9a7fc87e5ab035.jfif"); /* Yo'l to'g'irlandi */
+  background-size: cover; /* Rasmni konteynerga moslashtirish uchun */
+  background-position: center; /* Rasmni o'rtaga joylash uchun */
+  height: 400px; /* Yo'naltirish uchun qilingan */
+}
+.data {
+  background-color: #14161a;
+  width: 100%;
+  height: 200vh;
+
+  h2 {
+    font-family: Montserrat;
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 41.99px;
+    letter-spacing: 0.25px;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  input {
+    margin-top: 12px;
+    color: #ffffff;
+    background-color: #14161a;
+    border: 1px solid #ffffff3b !important;
+    padding: 15px 100px 15px 14px;
+    left: 38px;
+    opacity: 0px;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+  }
+}
+.uppercase-text {
+  text-transform: uppercase;
+  font-family: Roboto;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 31.46px;
+  letter-spacing: 0.15000000596046448px;
+  text-align: left;
+}
+.crypto-image {
+  width: 50px;
+  height: 50px;
+}
+table {
+  color: #ffffff;
+}
+.img_name {
+  display: flex !important;
+}
+.crypto-table {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+//   stil
+// Hero.scss
+
+.Hero {
+  background-color: #f8f9fa;
+  padding: 2rem 0;
+
+  .container {
+    p {
+      font-size: 1rem;
+      color: #666;
+    }
+  }
+}
+
+.data {
+  padding: 2rem 0;
+
+  .container {
+    .search-input {
+      margin-right: 40px !important;
+      width: 99%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .crypto-table {
+      overflow-x: auto;
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 2rem;
+
+        th,
+        td {
+          padding: 1rem;
+          text-align: left;
+          border-bottom: 1px solid #ccc;
+        }
+
+        th {
+          background-color: #87ceeb;
+          color: white;
+          font-weight: bold;
+        }
+
+        .img_name {
+          gap: 10px;
+
+          display: flex;
+          align-items: center;
+
+          img.crypto-image {
+            width: 30px; /* O'lchamni o'zgartirish mumkin */
+            height: 30px;
+            margin-right: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+.MuiPagination-root {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+
+  .MuiPagination-ul {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    list-style: none;
+  }
+  .MuiPagination-item {
+    color: #fff;
+
+    margin: 0 0.5rem;
+
+    &.Mui-selected {
+      background-color: #007bff;
+      color: white;
+    }
+  }
+}
+.symbol_name {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.thad {
+  font-family: Montserrat !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  line-height: 24px !important;
+
+  color: #222 !important;
+}
+.pagination {
+  color: #fff !important;
+}
+.faeye {
+  margin-bottom: -3px;
+  padding-right: 19px;
+}
+td {
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20.02px;
+}
+.pagination .MuiPaginationItem-root {
+  color: #87CEEB; /* Tugmalar rangini o'zgartirish */
+  font-family: Roboto;
+font-size: 14px;
+font-weight: 400;
+line-height: 20.02px;
+letter-spacing: 0.15000000596046448px;
+text-align: center;
+height: 50%;
+width: 50%;
+
+}
+
+.pagination .Mui-selected {
+  background-color: #e2e2e2; /* Tanlangan tugma rangini o'zgartirish */
+  color: #ffffff; /* Tanlangan tugma text rangi */
+}
+.curentt{
+    padding-left: 280px !important;
+}
