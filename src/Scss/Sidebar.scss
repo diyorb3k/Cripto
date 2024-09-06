@@ -1,52 +1,125 @@
 .App {
-    position: relative;
-  }
-  
-  .sidebar {
-    border: 1px solid rgb(195, 193, 193);
-    border-radius: 8px;
-    position: fixed;
-    top: 0;
-    right: -500px; 
-    width: 500px;
-    height: 100%;
-    background-color: #15171b;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    transition: right 0.5s ease;
-    overflow: auto;
-  }
-  
-  .sidebar.open {
-    right: 0; 
-  }
-  
-  .open-sidebar-button,
-  .close-sidebar-button {
-    margin-left: 10px;
-    margin-top: 20px;
-    font-family: Roboto;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 24.5px;
-    letter-spacing: 0.4000000059604645px;
-    text-align: center;
-    border: none;
-    color: #000000de;
-    border-radius: 4px;
-    cursor: pointer;
-    outline: none !important;
-    background-color: #87ceeb;
-    padding: 8px 17px 8px 19px !important;
-  }
-  
-  .sidebar-content {
-    padding: 20px;
-    color: white;
-    margin-top: 60px;
-  }
-  .btn_item{
-    background-color: #073e8b !important;
-    position: fixed;
-    width: 483px;
+  position: relative;
+}
 
+.sidebar {
+  // border: 1px solid rgb(195, 193, 193);
+  // border-radius: 8px;
+  position: fixed;
+  top: 0;
+  right: -511px;
+  width: 511px;
+  height: 100%;
+  background-color: #515151;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  transition: right 0.5s ease;
+  overflow: auto;
+}
+
+.sidebar.open {
+  right: 0;
+}
+
+.open-sidebar-button,
+.close-sidebar-button {
+  margin-left: 10px;
+  margin-top: 20px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24.5px;
+  letter-spacing: 0.4000000059604645px;
+  text-align: center;
+  border: none;
+  color: #000000de;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none !important;
+  background-color: #87ceeb;
+  padding: 8px 17px 8px 19px !important;
+}
+
+.sidebar-content {
+  padding: 20px;
+  color: white;
+  margin-top: 60px;
+}
+.btn_item {
+  background-color:#515151 !important;
+  position: fixed;
+  width: 483px;
+}
+
+.crypto-item {
+  margin-top: 39px;
+  display: flex;
+  flex-direction: column;
+  background-color: #14161a;
+  width: 198px;
+  height: 248px;
+  border-radius: 25px;
+  img {
+    width: 118px;
+    height: 118px;
+    padding: 17px 40px 37px 40px;
   }
+  p {
+    padding: 0px 32px 15px 50px;
+  }
+  button {
+    font-family: Roboto;
+    font-size: 20px !important;
+    font-weight: 400 !important;
+    line-height: 20.02px !important;
+    color: #fff;
+    background-color:#FF0000;
+    width: 106px;
+    margin-left: 46px;
+    margin-bottom: 25px !important; 
+    
+  }
+}
+.sidebar-content {
+  margin-left: 12px;
+  padding: 20px;
+  color: white;
+  margin-top: 39px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Ensures two items per row */
+  gap: 20px; /* Adds space between the items */
+}
+
+.crypto-item {
+  margin-top: 29px;
+  display: flex;
+  flex-direction: column;
+  background-color: #14161a;
+  width: 198px;
+  height: 248px;
+  border-radius: 25px;
+
+  img {
+    width: 118px;
+    height: 118px;
+    padding: 17px 40px 37px 40px;
+  }
+
+  p {
+    padding: 0px 32px 15px 50px;
+  }
+
+  button {
+    font-family: Roboto;
+    font-size: 20px !important;
+    font-weight: 400 !important;
+    line-height: 20.02px !important;
+    color: #fff;
+    background-color: #FF0000;
+    width: 106px;
+    margin-left: 46px;
+    margin-bottom: 25px !important; 
+  }
+}
+//////
+/// 
+/// 

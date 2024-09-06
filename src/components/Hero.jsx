@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom"; // Link import qilish
 import Header from "./Header"; // Header komponentini import qilish
 import MySwiperComponent from "./MySwiperComponent";
 import Loading from "./Loading/Loading";
+import axios from 'axios'; // Axiosni import qilish
 
 const Hero = () => {
   const [cryptocurrencies, setCryptocurrencies] = useState([]);
@@ -18,14 +19,24 @@ const Hero = () => {
   useEffect(() => {
     const fetchCryptocurrencies = async () => {
       try {
-        const response = await fetch(
-          `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=10&page=${page}&sparkline=false&price_change_percentage=24h`
+        const response = await axios.get(
+          `https://api.coingecko.com/api/v3/coins/markets`, 
+          {
+            params: {
+              vs_currency: currency,
+              order: 'market_cap_desc',
+              per_page: 10,
+              page: page,
+              sparkline: false,
+              price_change_percentage: '24h'
+            }
+          }
         );
-        const data = await response.json();
-        setCryptocurrencies(data);
 
-        const totalResults = 1000;
-        setTotalPages(Math.ceil(totalResults / 10));
+        setCryptocurrencies(response.data);
+
+        const totalResults = 1000; // Umumiy natijalar soni
+        setTotalPages(Math.ceil(totalResults / 10)); // Har bir sahifa uchun 10 ta natija
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -48,14 +59,14 @@ const Hero = () => {
     <>
       <Header currency={currency} setCurrency={setCurrency} />
       <div className="Hero">
-        <div className="container">
+        <div className="containerr">
           <h1>CRYPTOFOLIO WATCH LIST</h1>
           <p>Get all the Info regarding your favorite Crypto Currency</p>
           <MySwiperComponent />
         </div>
       </div>
       <div className="data">
-        <div className="container">
+        <div className="containerr">
           <h2>Cryptocurrency Prices by Market Cap</h2>
           <input
             type="text"
@@ -82,7 +93,7 @@ const Hero = () => {
                     
                   </tr>
                 ) : (
-                  filteredCryptos.map((crypto) => (
+                  filteredCryptos?.map((crypto) => (
                     <tr
                       key={crypto.id}
                       className="crypto-row"

@@ -7,7 +7,7 @@
   list-style: none;
   text-decoration: none;
 }
-.container {
+.containerr {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
@@ -98,18 +98,17 @@ table {
   background-color: #f8f9fa;
   padding: 2rem 0;
 
-  .container {
     p {
       font-size: 1rem;
       color: #666;
     }
-  }
+  
 }
 
 .data {
   padding: 2rem 0;
 
-  .container {
+  .containerr {
     .search-input {
       margin-right: 40px !important;
       width: 99%;
