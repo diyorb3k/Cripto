@@ -1,6 +1,7 @@
 import "../Scss/Header.scss";
 import cortilogo from "../../public/headerimg/CRYPTOFOLIO.svg";
 import Sidebar from "./seadbar/Sidebar";
+import { Link } from "react-router-dom";
 
 
 const Header = ({ currency, setCurrency }) => {
@@ -9,7 +10,7 @@ const Header = ({ currency, setCurrency }) => {
     <header>
       <div className="container">
         <div className="heder">
-          <img src={cortilogo} alt="-not-found-img" />
+         <Link to={'/'}><img src={cortilogo} alt="-not-found-img" /></Link>
           <div className="header_right">
             <select
               onChange={(e) => setCurrency(e.target.value)}
