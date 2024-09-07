@@ -6,7 +6,7 @@ const data = [
   { time: '00:00', value: 2920 },
   { time: '01:00', value: 2940 },
   { time: '02:00', value: 2950 },
-  // Shu yerda boshqa vaqtlar va qiymatlarni kiriting
+  
 ];
 
 const MyChart = () => {

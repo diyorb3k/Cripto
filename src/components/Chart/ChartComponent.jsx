@@ -1,5 +1,4 @@
-// ChartComponent.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../Scss/Chart.scss';
 import { Line } from 'react-chartjs-2';
 import {
@@ -11,7 +10,7 @@ import {
   Title,
   Tooltip,
   Legend,
-  Filler,  // Fill opsiyasi uchun kerak
+  Filler,
 } from 'chart.js';
 
 ChartJS.register(
@@ -26,56 +25,78 @@ ChartJS.register(
 );
 
 const ChartComponent = () => {
-  const data = {
-    labels: [
-      '12:00 AM', '12:15 AM', '12:30 AM', '12:45 AM', '1:00 AM', '1:15 AM', '1:30 AM', '1:45 AM', '2:00 AM',
-      '2:15 AM', '2:30 AM', '2:45 AM', '3:00 AM', '3:15 AM', '3:30 AM', '3:45 AM', '4:00 AM', '4:15 AM', '4:30 AM', '4:45 AM', '5:00 AM'
-    ], // Har 15 daqiqada vaqt belgilari
-    datasets: [
-      {
-        label: 'Price (Past 24 Hours) in INR',
-        data: [
-          2800000, 2801000, 2802000, 2803000, 2805000, 2806000, 2807000, 2808000, 2810000,
-          2811000, 2812000, 2813000, 2815000, 2816000, 2817000, 2818000, 2820000, 2821000, 2822000, 2823000, 2825000
-        ], // Har bir vaqt belgisiga mos keladigan qiymatlar
-        borderColor: 'rgba(54, 162, 235, 1)', // Chiziq rangi
-        backgroundColor: 'rgba(54, 162, 235, 0.2)', // To'ldirilgan joyning rangi
-        borderWidth: 2,
-        tension: 0.4, // Chiziqni yumshatish
-        fill: true, // To'ldirilgan rangi chizish
-        pointRadius: 0, // Nuqtalarni yashirish
-      },
-    ],
+  const [chartData, setChartData] = useState(null); 
+  const [timePeriod, setTimePeriod] = useState(24 * 60 * 60); 
+
+  const fetchChartData = async () => {
+    const endTime = Math.floor(Date.now() / 1000); 
+    const startTime = endTime - timePeriod; 
+    try {
+      const response = await fetch(`https://api.coingecko.com/api/v3/coins/bitcoin/market_chart/range?vs_currency=inr&from=${startTime}&to=${endTime}`); 
+      const data = await response.json();
+      
+      const prices = data.prices; 
+      const labels = prices.map(price => new Date(price[0]).toLocaleTimeString()); 
+      const priceValues = prices.map(price => price[1]); 
+
+      const formattedData = {
+        labels: labels, 
+        datasets: [
+          {
+            label: 'Price (Last Period) in INR',
+            data: priceValues, 
+            borderColor: 'rgba(54, 162, 235, 1)',
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            borderWidth: 5,
+            tension: 0.4,
+            fill: true,
+            pointRadius: 0,
+          },
+        ],
+      };
+
+      setChartData(formattedData);
+    } catch (error) {
+      console.error('API dan maʼlumot olishda xatolik:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchChartData();
+  }, [timePeriod]);
+
+  const handleTimePeriodChange = (period) => {
+    setTimePeriod(period);
   };
 
   const options = {
     scales: {
       x: {
         grid: {
-          display: false, // O'qdagi chiziqlarni yashirish
+          display: false,
         },
         ticks: {
-          color: '#ffffff', // Vaqt belgilarini oq rangda ko'rsatish (dark mode uchun)
+          color: '#ffffff',
         },
       },
       y: {
         grid: {
-          color: 'rgba(255, 255, 255, 0.1)', // Yengil grid chiziqlari
+          color: 'rgba(255, 255, 255, 0.1)',
         },
         ticks: {
-          color: '#ffffff', // O'qdagi raqamlarni oq rangda ko'rsatish
+          color: '#ffffff',
         },
       },
     },
     plugins: {
       legend: {
         labels: {
-          color: '#ffffff', // Legend tekstining rangi
+          color: '#ffffff',
         },
       },
       tooltip: {
-        enabled: true, // Ko'rsatkich faollashishi
-        mode: 'index', // Interaktivlikni yaxshilash
+        enabled: true,
+        mode: 'index',
         intersect: false,
       },
     },
@@ -83,7 +104,17 @@ const ChartComponent = () => {
 
   return (
     <div className='charrtt' style={{ width: '1292px', margin: '0 auto' }}>
-      <Line  data={data} options={options} />
+      {chartData ? (
+        <Line data={chartData} options={options} />
+      ) : (
+        <p>Yuklanmoqda...</p>
+      )}
+      <div className='bnn_grup'>
+        <button className='btn1' onClick={() => handleTimePeriodChange(24 * 60 * 60)}><p>24 Hours</p></button>
+        <button className='btn2' onClick={() => handleTimePeriodChange(30 * 24 * 60 * 60)}><p>30 Days</p></button>
+        <button className='btn3' onClick={() => handleTimePeriodChange(3 * 30 * 24 * 60 * 60)}>3 Months</button>
+        <button className='btn4' onClick={() => handleTimePeriodChange(365 * 24 * 60 * 60)}>1 Year</button>
+      </div>
     </div>
   );
 };

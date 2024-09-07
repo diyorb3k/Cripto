@@ -3,8 +3,6 @@
 }
 
 .sidebar {
-  // border: 1px solid rgb(195, 193, 193);
-  // border-radius: 8px;
   position: fixed;
   top: 0;
   right: -511px;
@@ -94,8 +92,8 @@
   color: white;
   margin-top: 39px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Ensures two items per row */
-  gap: 20px; /* Adds space between the items */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px; 
 }
 
 .crypto-item {
@@ -129,6 +127,4 @@
     margin-bottom: 25px !important;
   }
 }
-//////
-///
-///
+

@@ -54,7 +54,8 @@ const Detail = () => {
     <>
       <Header />
       <div className="Detal">
-    <div className="container">
+   <div>
+   <div className="container">
       <div className="chcrtt">
       <div className="container detail">
         <div className="img_namee">
@@ -73,6 +74,7 @@ const Detail = () => {
         <p className="wait">
           <strong>Market Cap:</strong> {crypto.market_data.market_cap.usd} USD
         </p>
+        
       </div>
       <div>
         <ChartComponent />
@@ -81,6 +83,8 @@ const Detail = () => {
 
   
     </div>
+
+   </div>
     </div>
     </>
   );

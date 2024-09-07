@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Hero from "./components/Hero";
 import Detail from "./components/Detail/Detail"; 
-import AnotherComponent from "./components/Another/AnotherComponent"; // Boshqa component
+import AnotherComponent from "./components/Another/AnotherComponent";
 import '../src/App.css';
 
 const App = () => {
-  const [savedData, setSavedData] = useState(null); // Ma'lumotlarni saqlash uchun holat
+  const [savedData, setSavedData] = useState(null); 
 
   return (
     <Router>

@@ -2,18 +2,18 @@ import React, { useEffect, useState } from "react";
 import "../Scss/Hero.scss";
 import Pagination from "@mui/material/Pagination";
 import { FaEye } from "react-icons/fa";
-import { useNavigate } from "react-router-dom"; // Link import qilish
-import Header from "./Header"; // Header komponentini import qilish
+import { useNavigate } from "react-router-dom"; 
+import Header from "./Header"; 
 import MySwiperComponent from "./MySwiperComponent";
 import Loading from "./Loading/Loading";
-import axios from 'axios'; // Axiosni import qilish
+import axios from 'axios'; 
 
 const Hero = () => {
   const [cryptocurrencies, setCryptocurrencies] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [currency, setCurrency] = useState("USD"); 
-  const [searchTerm, setSearchTerm] = useState(""); // Qidiruv uchun qiymat
+  const [searchTerm, setSearchTerm] = useState(""); 
   const navigate = useNavigate(); 
 
   useEffect(() => {
@@ -35,8 +35,8 @@ const Hero = () => {
 
         setCryptocurrencies(response.data);
 
-        const totalResults = 1000; // Umumiy natijalar soni
-        setTotalPages(Math.ceil(totalResults / 10)); // Har bir sahifa uchun 10 ta natija
+        const totalResults = 1000; 
+        setTotalPages(Math.ceil(totalResults / 10)); 
       } catch (error) {
         console.error("Error fetching data:", error);
       }

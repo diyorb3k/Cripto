@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "swiper/css/autoplay"; // Autoplay usulini import qilish
+import "swiper/css/autoplay"; 
 import "../Scss/MySwiperComponent.scss";
-// import required modules
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 const MySwiperComponent = () => {
@@ -25,22 +23,20 @@ const MySwiperComponent = () => {
         console.error("Error fetching users:", error);
       }
     };
-    fetchUsers(); // Funksiyani chaqirish
+    fetchUsers(); 
   }, []);
 
   return (
     <Swiper
       dir="rtl"
       navigation={true}
-    //   pagination={{
-    //     clickable: true,
-    //   }}
-      slidesPerView={4} // To'rtta slaydni ko'rsatish
+    
+      slidesPerView={4} 
       autoplay={{
-        delay: 1000, // Har 3 soniyada slaydlar o'zgaradi
-        disableOnInteraction: false, // Foydalanuvchi o'zaro ta'sir qilsa, aylantirishni to'xtatmaydi
+        delay: 1000, 
+        disableOnInteraction: false,
       }}
-      modules={[Navigation, Pagination, Autoplay]} // Autoplay modulini qo'shish
+      modules={[Navigation, Pagination, Autoplay]} 
       className="mySwiper"
     >
       {users.map((user) => (

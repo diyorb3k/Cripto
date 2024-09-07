@@ -147,7 +147,7 @@ table {
           align-items: center;
 
           img.crypto-image {
-            width: 30px; /* O'lchamni o'zgartirish mumkin */
+            width: 30px; 
             height: 30px;
             margin-right: 0.5rem;
           }
@@ -219,15 +219,14 @@ width: 50%;
 }
 
 .pagination .Mui-selected {
-  background-color: #e2e2e2; /* Tanlangan tugma rangini o'zgartirish */
-  color: #ffffff; /* Tanlangan tugma text rangi */
+  background-color: #e2e2e2; 
+  color: #ffffff; 
 }
 .curentt{
     padding-left: 280px !important;
 }
 
 
-// herrrr
 .crypto-row {
   cursor: pointer;
 }
