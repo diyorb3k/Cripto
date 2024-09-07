@@ -40,19 +40,16 @@ function Sidebar() {
     };
   }, [isSidebarOpen]);
 
-  // Function to handle closing the sidebar on scroll
   const handleScrollClose = () => {
     setSidebarOpen(false);
   };
 
-  // Function to handle closing sidebar if clicked outside
   const handleClickOutside = (event) => {
     if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
       setSidebarOpen(false);
     }
   };
 
-  // Function to handle removing an item
   const handleRemoveItem = (index) => {
     const updatedArray = storedDataArray.filter((_, i) => i !== index);
     setStoredDataArray(updatedArray);
@@ -67,7 +64,7 @@ function Sidebar() {
 
       <div ref={sidebarRef} className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
         <div className='btn_item'>
-       
+       <h3>WATCHLIST</h3>
         </div>
         
         <div className="sidebar-content">
@@ -80,7 +77,7 @@ function Sidebar() {
               </div>
             ))
           ) : (
-            <p>No data available in Watch List.</p>
+            ""
           )}
 
           <AnotherComponent />

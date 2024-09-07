@@ -45,9 +45,19 @@
   margin-top: 60px;
 }
 .btn_item {
-  background-color:#515151 !important;
-  position: fixed;
+  background-color: #515151 !important;
+  position: fixed !important;
   width: 483px;
+  z-index: 12332;
+  h3 {
+    font-family: Roboto;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 24.5px;
+    text-align: center;
+    color: #fff;
+    margin-top: 32px;
+  }
 }
 
 .crypto-item {
@@ -72,11 +82,10 @@
     font-weight: 400 !important;
     line-height: 20.02px !important;
     color: #fff;
-    background-color:#FF0000;
+    background-color: #ff0000;
     width: 106px;
     margin-left: 46px;
-    margin-bottom: 25px !important; 
-    
+    margin-bottom: 25px !important;
   }
 }
 .sidebar-content {
@@ -114,12 +123,12 @@
     font-weight: 400 !important;
     line-height: 20.02px !important;
     color: #fff;
-    background-color: #FF0000;
+    background-color: #ff0000;
     width: 106px;
     margin-left: 46px;
-    margin-bottom: 25px !important; 
+    margin-bottom: 25px !important;
   }
 }
 //////
-/// 
-/// 
+///
+///

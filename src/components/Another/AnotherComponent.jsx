@@ -2,7 +2,9 @@ import React from 'react';
 
 const AnotherComponent = ({ savedData }) => {
   if (!savedData) {
-    return <div>No data available</div>;
+    return <div>
+
+    </div>;
   }
 
   return (

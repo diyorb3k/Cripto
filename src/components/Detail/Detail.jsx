@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Loading from "../Loading/Loading";
 import Header from "../Header";
 import "../../Scss/Detail.scss";
+import ChartComponent from "../Chart/ChartComponent";
 
 const Detail = () => {
   const { id } = useParams();
@@ -17,20 +18,17 @@ const Detail = () => {
         const data = await response.json();
         setCrypto(data);
 
-        // LocalStorage'da allaqachon mavjud bo'lgan arrayni olish
         const storedCryptoArray = JSON.parse(localStorage.getItem("cryptoDataArray")) || [];
 
-        // Ma'lumotlarni faqat kerakli qismlarini olish va localStorage'da saqlash
         const cryptoInfo = {
           id: data.id,
           name: data.name,
           market_cap_rank: data.market_cap_rank,
           current_price: data.market_data.current_price.usd,
           market_cap: data.market_data.market_cap.usd,
-          image: data.image.large, // Rasm URL'sini saqlaymiz
+          image: data.image.large, 
         };
 
-        // Ma'lumot allaqachon saqlangan bo'lsa, qo'shmaslik uchun tekshirish
         const isAlreadyStored = storedCryptoArray.some((item) => item.id === cryptoInfo.id);
         if (!isAlreadyStored) {
           storedCryptoArray.push(cryptoInfo);
@@ -53,8 +51,11 @@ const Detail = () => {
   }
 
   return (
-    <div className="Detal">
+    <>
       <Header />
+      <div className="Detal">
+    <div className="container">
+      <div className="chcrtt">
       <div className="container detail">
         <div className="img_namee">
           <img className="data_img" src={crypto.image.large} alt={crypto.name} />
@@ -73,9 +74,15 @@ const Detail = () => {
           <strong>Market Cap:</strong> {crypto.market_data.market_cap.usd} USD
         </p>
       </div>
+      <div>
+        <ChartComponent />
+      </div>
+      </div>
 
   
     </div>
+    </div>
+    </>
   );
 };
 
