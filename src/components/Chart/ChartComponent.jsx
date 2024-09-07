@@ -57,7 +57,7 @@ const ChartComponent = () => {
 
       setChartData(formattedData);
     } catch (error) {
-      console.error('API dan maʼlumot olishda xatolik:', error);
+      console.error('API dan malumot olishda xatolik:', error);
     }
   };
 
@@ -107,7 +107,7 @@ const ChartComponent = () => {
       {chartData ? (
         <Line data={chartData} options={options} />
       ) : (
-        <p>Yuklanmoqda...</p>
+        <h4>Yuklanmoqda...</h4>
       )}
       <div className='bnn_grup'>
         <button className='btn1' onClick={() => handleTimePeriodChange(24 * 60 * 60)}><p>24 Hours</p></button>
